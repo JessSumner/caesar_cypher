@@ -7,7 +7,11 @@ class Encryption
   def encrypt(string)
     cypher = string.split("").map do |letter|
       index = alphabet.find_index(letter) + 5
-      alphabet[index]
+      if index <= alphabet.length 
+        alphabet[index]
+      else
+        alphabet[index - alphabet.length]
+      end
     end
     cypher.join
   end
