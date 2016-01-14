@@ -1,0 +1,2 @@
+class EncoderTest
+end
