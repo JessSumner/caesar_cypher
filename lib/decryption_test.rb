@@ -3,7 +3,7 @@ require_relative 'decryption'
 
 class DecryptionTest < Minitest::Test
   def setup
-    @decryption = decryption.new
+    @decryption = Decryption.new
   end
 
   def test_standard_cypher_should_be_decrypted_to_plain_text

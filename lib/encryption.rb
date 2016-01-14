@@ -1,9 +1,5 @@
+require_relative 'application_helper'
 class Encryption
-
-  def alphabet
-    alphabet = ("a".."z").to_a
-  end
-
   def encrypt(string)
     cypher = string.split("").map do |letter|
       index = alphabet.find_index(letter) + 5
