@@ -1,8 +1,8 @@
 require_relative 'application_helper'
 class Encryption
-  def encrypt(string)
+  def encrypt(string, shift=5)
     cypher = string.split("").map do |letter|
-      index = alphabet.find_index(letter) + 5
+      index = alphabet.find_index(letter) + shift
       if index <= alphabet.length 
         alphabet[index]
       else
@@ -11,4 +11,6 @@ class Encryption
     end
     cypher.join
   end
+
+  
 end
