@@ -13,7 +13,7 @@ class EncryptionTest < Minitest::Test
 
   def test_alphabet_should_loop_back_to_the_beginning_when_encrypted_by_default_shift
     plain_text = "zebra"
-    assert_equal "djgwf", @encryption.encrypt(plain_text)
+    assert_equal "?jgwf", @encryption.encrypt(plain_text)
   end
 
   def test_plain_text_should_be_encrypted_by_variable_shift
@@ -25,11 +25,21 @@ class EncryptionTest < Minitest::Test
   def test_alphabet_should_loop_back_to_the_beginning_when_encrypted_by_variable_shift
     plain_text = "zebra"
     shift = 6
-    assert_equal "ekhxg", @encryption.encrypt(plain_text, shift)
+    assert_equal ";khxg", @encryption.encrypt(plain_text, shift)
   end
 
   def test_plain_text_can_include_whitespace
     plain_text = "hello world"
-    assert_equal "mjqqteatwqi", @encryption.encrypt(plain_text)
+    assert_equal "mjqqt;,twqi", @encryption.encrypt(plain_text)
+  end
+
+  def test_plain_text_can_include_normal_punctuation
+    plain_text = ",./?;:'()"
+    assert_equal ":'()01234", @encryption.encrypt(plain_text)
+  end
+
+  def test_plain_text_can_include_numbers
+    plain_text = "january 2016"
+    assert_equal "ofszfw/;756b", @encryption.encrypt(plain_text)
   end
 end

@@ -3,9 +3,13 @@ def alphabet
 end
 
 def symbols
-  symbols = [" "]
+  symbols = [" ",",",".","/","?",";",":","'","(",")"]
+end
+
+def numbers
+  numbers = ("0".."9").to_a
 end
 
 def characters
-  alphabet + symbols
+  alphabet + symbols + numbers
 end
