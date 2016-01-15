@@ -1,12 +1,12 @@
 require_relative 'application_helper'
 class Decryption
-  def decrypt(string)
+  def decrypt(string, shift=5)
     plain_text = string.split("").map do |letter|
-      index = alphabet.find_index(letter) - 5
+      index = characters.find_index(letter) - shift
       if index >= 0
-        alphabet[index]
+        characters[index]
       else
-        alphabet[alphabet.length + index]
+        characters[characters.length + index]
       end
     end
     plain_text.join
